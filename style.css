@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  --bg: #0f0f10;
+  --card: #161617;
+  --muted: #a7a7ac;
+  --text: #f3f3f4;
+  --line: #262628;
+  --accent: #e9e9ec;
+  --pill: #1f1f21;
+  --radius: 16px;
+  --shadow: 0 1px 0 rgba(255,255,255,.02), 0 10px 35px rgba(0,0,0,.28);
+
+  --ease: cubic-bezier(.2,.8,.2,1);
+}
+
+*{ box-sizing: border-box; }
+html, body{ margin:0; padding:0; }
+body{
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.65 "Plus Jakarta Sans", Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container{ max-width: 1080px; margin: 40px auto; padding: 0 22px; }
+
+header.site{
+  display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px;
+}
+.brand{
+  font-size: 24px; font-weight: 800; letter-spacing:.2px;
+  background: linear-gradient(90deg,#fff,#bfbfc4);
+  -webkit-background-clip:text; background-clip:text; color:transparent;
+}
+nav.menu ul{ list-style:none; display:flex; gap:10px; padding:0; margin:0; }
+nav.menu a{
+  display:inline-block; padding:10px 14px; border:1px solid var(--line);
+  border-radius:999px; text-decoration:none; color:var(--text); background: var(--pill);
+  transition: transform .15s var(--ease), border-color .2s, background .2s;
+}
+nav.menu a:hover{ transform: translateY(-1px); border-color: var(--accent); }
+
+.card{
+  background: var(--card); border:1px solid var(--line); border-radius: var(--radius);
+  padding: 22px; box-shadow: var(--shadow);
+}
+
+h1,h2,h3{ margin:0 0 12px; font-weight:800; letter-spacing:.2px; }
+h1{ font-size: 34px; line-height:1.15; }
+h2{ font-size: 22px; color: var(--accent); font-weight:700; }
+h3{ font-size: 18px; color: var(--accent); font-weight:700; }
+p.muted, small.muted{ color: var(--muted); }
+
+.table-wrap{ overflow:auto; border-radius: 12px; }
+table{
+  width:100%; border-collapse: collapse; min-width: 760px; background:#121213; border:1px solid var(--line);
+}
+th, td{ padding:12px 14px; text-align:left; }
+th{ font-weight:600; color:var(--accent); background:#141415; position:sticky; top:0; border-bottom:1px solid var(--line); }
+tbody tr{ border-bottom:1px solid var(--line); }
+tbody tr:hover{ background:#151517; }
+.actions a{
+  color:var(--accent); text-decoration:none; padding:6px 10px; border:1px solid var(--line); border-radius:8px; margin-right:6px;
+}
+.actions a:hover{ border-color:var(--accent); background:#141415; }
+
+form fieldset{ border:0; padding:0; margin:0; }
+.form-grid{ display:grid; gap:14px; }
+label span{ display:block; margin-bottom:6px; color:var(--accent); }
+input[type="text"], textarea, select{
+  width:100%; background:#121213; color:var(--text); border:1px solid var(--line); border-radius:12px; padding:12px 14px; outline:none;
+  transition: border-color .2s, box-shadow .2s;
+}
+input[type="text"]:focus, textarea:focus, select:focus{
+  border-color: var(--accent); box-shadow: 0 0 0 6px rgba(233,233,236,.06);
+}
+.radio-row{ display:flex; gap:14px; flex-wrap:wrap; }
+.radio-row label{
+  display:inline-flex; align-items:center; gap:8px; padding:8px 10px; border:1px solid var(--line); border-radius:12px; background:#121213;
+}
+input[type="radio"]{ accent-color:#d8d8dd; }
+.btn{
+  appearance:none; border:1px solid var(--line); color:var(--text); background:#141415;
+  padding:12px 16px; border-radius:12px; cursor:pointer; font-weight:700; transition: transform .15s var(--ease), border-color .2s, background .2s;
+}
+.btn:hover{ border-color:var(--accent); transform: translateY(-1px); }
+
+.notice{ margin-top:14px; padding:12px 14px; border:1px dashed var(--line); border-radius:12px; }
+
+.hero{
+  position:relative; overflow:hidden; border-radius: clamp(16px, 2vw, 24px);
+  padding: clamp(28px, 5vw, 42px);
+  background:
+    radial-gradient(1200px 300px at 20% -10%, rgba(255,255,255,.06), transparent 60%),
+    radial-gradient(1000px 280px at 80% 0%, rgba(180,180,200,.05), transparent 60%),
+    linear-gradient(180deg, #18191b 0%, #121213 100%);
+  border:1px solid var(--line);
+  box-shadow: var(--shadow);
+  animation: floatBg 14s var(--ease) infinite alternate;
+}
+@keyframes floatBg{
+  0%{ background-position: 0 0, 0 0, 0 0; }
+  100%{ background-position: -40px -10px, 30px 10px, 0 0; }
+}
+.hero .kicker{
+  display:inline-flex; gap:8px; align-items:center; padding:6px 10px; background: var(--pill);
+  border:1px solid var(--line); border-radius:999px; color:var(--accent); font-weight:600; font-size:12px;
+}
+.hero h1{ margin-top:12px; }
+.hero .lead{ color:var(--muted); max-width:70ch; margin-top:6px; }
+.hero .cta{ display:flex; gap:10px; margin-top:18px; flex-wrap:wrap; }
+
+.btn.primary{ background: linear-gradient(180deg,#1c1c1e,#121213); border-color:#2a2a2d; }
+.btn.primary:hover{ border-color:#fff; box-shadow: 0 10px 30px rgba(255,255,255,.06); }
+
+.reviews{ margin-top:16px; }
+.carousel{
+  position:relative; overflow:hidden; border-radius: var(--radius);
+  border: 1px solid var(--line); background:#131314;
+}
+.track{
+  display:flex; transition: transform .5s var(--ease);
+}
+.slide{
+  min-width: 100%; padding: 22px; display:grid; gap:8px;
+}
+.stars{ display:inline-flex; gap:2px; }
+.star{ width:18px; height:18px; display:inline-block; }
+.star svg{ width:100%; height:100%; display:block; }
+.reviewer{ display:flex; align-items:center; gap:10px; }
+.avatar{
+  width:42px; height:42px; border-radius:999px; background:#1f1f21; border:1px solid var(--line);
+  display:flex; align-items:center; justify-content:center; font-weight:800; color:#d7d7db;
+}
+.role{ color:var(--muted); font-size:13px; }
+.ctrl{
+  position:absolute; top:50%; transform: translateY(-50%);
+  display:flex; gap:6px;
+}
+.ctrl button{
+  border:1px solid var(--line); background:#141415; color:var(--text); padding:8px 10px; border-radius:10px; cursor:pointer;
+  transition: transform .15s var(--ease), border-color .2s; backdrop-filter: blur(6px);
+}
+.ctrl button:hover{ border-color: var(--accent); transform: translateY(-1px); }
+.ctrl.prev{ left:10px; }
+.ctrl.next{ right:10px; }
+
+.section{ margin-top:16px; }
+ul.clean{ margin:10px 0 0 18px; }
